@@ -1,0 +1,781 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-search::placeholder {
+    font-family: "Poppins", "Font Awesome 5 Free", sans-serif;
+}
+
+.bg-gray {
+    background: gray;
+    min-height: 100vh;
+    margin-top: -5px;
+}
+
+.content {
+    padding-top: 74px;
+}
+.content .create-game-button {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 40px;
+    right: 40px;
+    font-size: 25px;
+    background: black;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: 2px solid red;
+    color: red;
+    text-decoration: none;
+    z-index: 5;
+}
+.content .create-game-button:hover {
+    color: black;
+    background: white;
+    border-color: black;
+}
+.content .form-control-file {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    outline: none;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.content .form-control-file::before {
+    content: attr(data-title);
+    white-space: pre-wrap;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    border-radius: 3px;
+    border: 3px dashed lightgray;
+    color: lightgray;
+}
+
+.content .form-control-file.is-invalid::before {
+    border-color: red;
+}
+
+.content .form-control-file:hover::before,
+.content .form-control-file.selected::before {
+    color: white;
+    border-color: white;
+}
+
+.content label {
+    font-size: 12px;
+    color: white;
+}
+
+.content .form-text {
+    color: lightgray;
+    font-size: 11px;
+    margin-left: 5px;
+
+}
+
+.content input.is-invalid {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.content .invalid-feedback {
+    margin-left: 5px;
+    font-size: 11px;
+    color: white;
+}
+.content .games .game{
+    position: relative;
+    margin: 10px 0px;
+}
+.content .games .game .decription{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    max-width: 96%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin: 6px;
+    padding: 10px 20px 10px 15px;
+    box-sizing: border-box;
+}
+
+.content .games .game .decription .title{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.content .games .game .decription .category{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-style: italic;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.content .games .game .background{
+    border-radius: 10px;
+    border: 3px solid transparent;
+    height: 180px !important;
+    background-size: 100% !important;
+    background-position: center !important;
+    box-sizing: border-box;
+}
+.content .games .game .action{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s;
+    z-index: 3;
+}
+.content .games .game:hover .background{
+    border-color: black;
+    filter: grayscale();
+}
+.content .games .game:hover .action{
+    opacity: 1;
+    pointer-events: all;
+}
+.content .games .game .action a,
+.content .games .game .action form{
+    margin: 0px 5px;
+}
+
+
+.title {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar-dark.bg-dark {
+    width: 100%;
+    position: fixed;
+    background: #262626 !important;
+    min-height: 71px;
+    border-bottom: 3px solid red;
+    z-index: 4;
+}
+
+.navbar-dark.bg-dark a.navbar-brand {
+    padding: 0;
+    margin: 0;
+    font-size: 33px;
+    font-weight: 500;
+    font-family: "Italianno", cursive;
+}
+
+.navbar-dark.bg-dark .photo-profile {
+    width: 55px;
+    border-radius: 50%;
+    border: 2px solid red;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .dropdown-menu .dropdown-item {
+    font-size: 15px;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link {
+    font-weight: 300;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link.active {
+    font-weight: 400;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link::before {
+    content: "";
+    display: block;
+    background: transparent;
+    height: 2px;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    background: red;
+    height: 2px;
+    width: 0%;
+    margin: auto;
+    transition: width 0.3s;
+}
+
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link:hover::after,
+.navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link.active::after {
+    width: 20%;
+}
+
+.navbar-dark.bg-dark .container .nav-desktop {
+    display: none !important;
+}
+.navbar-dark.bg-dark .container .nav-mobile {
+    margin-left: auto;
+    padding-right: 13px;
+}
+.navbar-dark.bg-dark .container .navbar-toggler {
+    font-size: 17px;
+}
+
+.footer {
+    z-index: 4;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    background: #262626 !important;
+    color: white;
+    min-height: 71px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-top: 3px solid red;
+}
+
+.footer .copyright {
+    font-size: 14px;
+}
+
+.footer .social-media a {
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+
+.footer .social-media a:hover {
+    color: gray;
+}
+
+.page-item .page-link{
+    color: red;
+    outline: none;
+    box-shadow: none;
+}
+.page-item.active .page-link{
+    background: red;
+    border-color: red;
+}
+
+.breadcrumb .breadcrumb-item,
+.breadcrumb .breadcrumb-item a,
+.breadcrumb .breadcrumb-item::before{
+
+    margin-right: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700!important;
+    content: "\f101" !important;
+}
+
+.detail-game video{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+.detail-game .buy-game{
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    position: relative;
+    font-weight: 700;
+}
+.detail-game .buy-game .description{
+    position: absolute;
+    right: -30px;
+    bottom: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+.detail-game .buy-game .description .add-cart-button,
+.detail-game .buy-game .description .price {
+    margin: 0px 5px;
+}
+.detail-game .buy-game .description .price {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+}
+.detail-game .buy-game .description .add-cart-button{
+    font-size: 13px;
+    font-weight: 700;
+    color: black;
+    background:none;
+    border: none;
+    text-transform: uppercase;
+}
+.detail-game .buy-game .description .add-cart-button:hover{
+    color: gray;
+}
+.detail-game .buy-game .description .price::after {
+    content: '';
+    border-right: 3px solid black;
+    margin-left: 12px;
+}
+.detail-game .cover {
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 210px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    box-sizing: border-box;
+}
+.detail-game .title-game{
+    font-size: 23px;
+    margin-top: 15px;
+    color: white;
+    font-weight: 700;
+}
+.detail-game .description-game{
+    font-size:13px;
+    margin-top: 10px;
+    color: white;
+    font-weight: 200;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+.detail-game .other{
+    letter-spacing: 1px;
+    font-size:13px;
+    color: white;
+    margin-bottom: 2px;
+    font-weight: 200;
+}
+.detail-game .other span{
+    font-weight: 500;
+}
+
+.long-description{
+    margin-top: 25px;
+    color: white;
+}
+.long-description h3{
+    font-size: 25px;
+    font-weight: 700;
+    border-bottom: 5px solid white;
+    padding-bottom:10px;
+    margin-bottom: 5px;
+}
+.long-description p{
+    letter-spacing: 1px;
+    font-size:13px;
+    text-align: justify;
+    font-weight: 300;
+
+    white-space: pre-line;
+
+}
+
+.check-age{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1.5px solid white;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.check-age .cover{
+    width: 300px;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 210px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    box-sizing: border-box;
+    margin-top: -100px;
+}
+.check-age h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: white;
+    font-weight: 300;
+}
+.check-age .form{
+    background: lightgray;
+    padding: 30px 60px;
+    border-radius: 10px;
+}
+.check-age .form span{
+    text-align: center;
+    font-size: 15px;
+}
+.check-age .form label{
+    color: black;
+}
+
+.carts {
+    border-radius: 10px;
+}
+.carts table{
+    font-weight: 500;
+}
+.carts .border-receipt{
+    margin-top: 13px;
+    border-bottom: 1px solid gray;
+}
+.cart{
+    padding: 20px;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+.cart .title{
+    margin: 3px 20px;
+    color: black;
+    font-size: 20px;
+}
+.cart .title .badge {
+    font-size: 10px;
+    vertical-align: middle;
+}
+.cart .price {
+    margin: 3px 20px;
+    color: gray;
+    font-size: 15px;
+}
+.carts .cart .cover {
+    width: 230px;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 150px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    box-sizing: border-box;
+}
+
+.carts .checkout {
+    width: fit-content;
+}
+
+.information{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.information .sub-information{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.information .sub-information.active{
+    border: 2px solid black;
+}
+.information .sub-information.finish .number{
+    font-size: 30px;
+    line-height: 50px;
+}
+.information .sub-information.active .number,
+.information .sub-information.active .title{
+    color: black;
+    font-weight: 700;
+    border-color: black;
+}
+.information .sub-information:nth-child(1){
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.information .sub-information:nth-child(3){
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.information .sub-information .number{
+    color:gray;
+    font-size: 20px;
+    font-weight: 300;
+    border: 5px solid gray;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+}
+.information .sub-information .title{
+    font-size: 20px;
+    font-weight: 300;
+    color:gray;
+    margin-left: 20px;
+}
+.profile{
+    border-radius: 10px;
+}
+
+.profile .content{
+    padding: 27px;
+    padding-bottom: 50px;
+    padding-right: 0px;
+}
+
+.profile .content .title{
+    color: black;
+    font-size: 18px;
+}
+
+.profile .content .help{
+    color: gray;
+    font-size: 13px;
+}
+
+.profile .content .information{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile .content .information label{
+    color: black;
+}
+.profile .content .information input{
+    width: 100%;
+}
+.profile .content .information .is-invalid {
+    border: 1px solid red;
+}
+.profile .content .information .invalid-feedback{
+    color: red;
+}
+.profile .content .information .form-text {
+    color: gray;
+}
+.profile .content .information .image{
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+.profile .content .information .image img{
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.profile .content .information .image:hover img{
+    filter: brightness(20%);
+    border-color: white;
+}
+.profile .content .information .image:hover div{
+    display: flex;
+}
+.profile .content .information .image #change-profile{
+    display: none;
+}
+.profile .content .information .image div{
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    font-size: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile .sidebar{
+    text-align: start;
+    width: fit-content;
+    border-right:2px solid lightgray ;
+    padding: 20px;
+    padding-right: 5px;
+}
+.profile .sidebar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.profile .sidebar ul li{
+    padding: 10px;
+    padding-left: 10px;
+    border-left: 5px solid transparent;
+}
+
+.profile .sidebar ul li:hover a{
+    color: black;
+}
+
+.profile .sidebar ul li.active{
+    border-left: 5px solid black;
+}
+
+.profile .sidebar ul li a{
+    font-size: 15px;
+    text-decoration: none;
+    color: gray;
+}
+
+.profile .sidebar ul li.active a{
+    color: black;
+}
+.profile .sidebar ul li a span{
+    display: none;
+}
+.profile .sidebar ul li a .fa{
+    margin-right: 20px;
+}
+
+.profile .content .friends label{
+    color: black;
+}
+
+.profile .content .friends .is-invalid {
+    border: 1px solid red;
+}
+
+.profile .content .friends .invalid-feedback {
+    color: red;
+}
+.profile .content .friends .sub-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+.profile .content .friends .card  {
+    width: 300px;
+}
+.profile .content .friends .card .card-title {
+    font-size: 17px;
+    font-weight: 700;
+}
+.profile .content .friends .card .card-title .badge{
+    font-size: 10px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.profile .content .friends .card .card-subtitle {
+    font-size: 13px;
+    font-weight: 500;
+}
+.profile .content .friends .card img {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+.profile .content .friends .card .action {
+    border-top: 1px solid gray;
+}
+
+.history .transaction:nth-child(1) {
+    border-top: 1px solid gray;
+}
+.history .transaction {
+    padding: 10px 0px;
+    border-bottom: 1px solid gray;
+}
+.history .transaction .cover {
+    width: 220px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    height: 150px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+    .navbar-dark.bg-dark .container .nav-desktop {
+        display: flex !important;
+    }
+
+    .navbar-dark.bg-dark .container .nav-mobile {
+        display: none !important;
+    }
+
+    .navbar-dark.bg-dark .container .cart-mobile {
+        display: none !important;
+    }
+    .navbar-dark.bg-dark .container .nav-desktop .dropdown-menu .dropdown-item {
+        font-size: 15px;
+    }
+
+    .navbar-dark.bg-dark .container {
+        padding: auto 0px !important;
+    }
+
+    .navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .btn {
+        display: none;
+    }
+
+    .navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .dropdown {
+        display: none;
+    }
+
+    .navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link:hover::after,
+    .navbar-dark.bg-dark .collapse.navbar-collapse .navbar-nav .nav-link.active::after {
+        width: 100%;
+    }
+
+    .footer {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .detail-game .buy-game .description {
+        right: 10px;
+    }
+
+    .detail-game .buy-game .description .add-cart-button,
+    .detail-game .buy-game .description .price {
+        margin: 0px 10px;
+    }
+
+    .profile .sidebar {
+        padding-right: 50px;
+    }
+    .profile .sidebar ul li a span {
+        display: inline-block;
+    }
+
+    .profile .content .information .image {
+        width: 65%;
+    }
+}
